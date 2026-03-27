@@ -20,7 +20,7 @@ class TestSmoke:
         driver = self.driver
 
         # Open site
-        driver.get("http://127.0.0.1:5500/cse270-v16%20(1)/cse270/teton/1.6/index.html")
+        driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
 
         # --- Test 1: Logo/Header ---
         assert "Teton Idaho CoC" in driver.title
@@ -30,7 +30,7 @@ class TestSmoke:
         assert driver.find_element(By.LINK_TEXT, "Join Us")
 
         # --- Test 3: Directory Page ---
-        driver.get("http://127.0.0.1:5500/cse270-v16%20(1)/cse270/teton/1.6/directory.html")
+        driver.get("http://127.0.0.1:5500/teton/1.6/directory.html")
         WebDriverWait(driver, 10).until(
             lambda d: "Teton Turf and Tree" in d.page_source
         )
@@ -38,7 +38,7 @@ class TestSmoke:
     
 
         # --- Test 4: Join Page ---
-        driver.get("http://127.0.0.1:5500/cse270-v16%20(1)/cse270/teton/1.6/join.html")
+        driver.get("http://127.0.0.1:5500/teton/1.6/join.html")
         driver.execute_script("document.getElementsByName('fname')[0].value='John';")
         driver.execute_script("document.getElementsByName('lname')[0].value='Doe';")
         driver.execute_script("document.getElementsByName('bizname')[0].value='My Business';")
@@ -46,7 +46,7 @@ class TestSmoke:
         driver.find_element(By.TAG_NAME, "input").click()
         assert "email" in driver.page_source.lower()
         # --- Test 5: Admin Page ---
-        driver.get("http://127.0.0.1:5500/cse270-v16%20(1)/cse270/teton/1.6/admin.html")
+        driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
         driver.execute_script("document.getElementsByName('username')[0].value='wrong';")
         driver.execute_script("document.getElementsByName('password')[0].value='wrong';")
 
